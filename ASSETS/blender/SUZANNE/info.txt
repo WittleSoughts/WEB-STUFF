@@ -1,0 +1,28 @@
+COLORS: 4 tone - lightest to darkest
+--> #DEC0E7FF
+--> #AF769AFF
+--> #8A446FFF
+--> #30021EFF
+
+[ BASIC CELL SHADER + FRESNEL OUTLINE ]
+cell shader: 
+	--> Diffuse BSDF shader 
+		--> Shader to RGB
+			--> Color ramp
+			--> POSITIONS:
+				--> 0.661
+				--> 0.345
+				--> 0.059
+				--> 0.000
+
+fresnel outline:
+	--> Layer weight
+	--> BLEND: 0.500
+		--> Math node: Less than
+		--> THRESHOLD: 0.360
+		
+combination node:
+	--> Color mix
+	--> FRESNEL: factor
+	--> FRESNEL COLOR: a
+	--> CELL SHADER: b
